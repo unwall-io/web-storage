@@ -1,4 +1,11 @@
-# <a href="" target="__blank"><img alt="w3cwebstorage" src="logo.svg" width="60" /></a> w3cwebstorage
+<a href="" target="__blank"><img alt="w3cwebstorage" src="logo.svg" width="60" /></a>
+
+# w3cwebstorage
+
+[![npm (scoped)](https://img.shields.io/npm/v/@w3cwebstorage/w3cwebstorage)](https://www.npmjs.com/package/@w3cwebstorage/w3cwebstorage)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/w3cwebstorage/w3cwebstorage)](https://circleci.com/gh/w3cwebstorage/w3cwebstorage)
+[![Coverage Status](https://coveralls.io/repos/github/w3cwebstorage/w3cwebstorage/badge.svg)](https://coveralls.io/github/w3cwebstorage/w3cwebstorage)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Overview
 
