@@ -1,0 +1,14 @@
+{
+  "name": "w3cwebstorage",
+  "version": "0.0.1",
+  "description": "Web Storage with reducers",
+  "main": "index.js",
+  "repository": "https://github.com/w3cwebstorage/w3cwebstorage.git",
+  "bugs": {
+    "url": "https://github.com/w3cwebstorage/w3cwebstorage/issues"
+  },
+  "homepage": "https://github.com/w3cwebstorage/w3cwebstorage#readme",
+  "author": "Darren Seet <darren@seet.dev>",
+  "license": "MIT",
+  "private": false
+}
