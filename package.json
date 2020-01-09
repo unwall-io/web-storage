@@ -51,7 +51,5 @@
     "prettier": "1.19.1",
     "rollup": "1.28.0"
   },
-  "dependencies": {
-    "semantic-release-cli": "5.2.3"
-  }
+  "dependencies": {}
 }
