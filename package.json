@@ -5,6 +5,9 @@
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.js",
   "browser": "./dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup --config && jest --coverage --coverageReporters=text-lcov | coveralls",
     "test": "jest ."
