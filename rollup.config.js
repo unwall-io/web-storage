@@ -1,8 +1,7 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 
-const legoUmd = input => {
-  const name = input.replace("./src", "w3cwebstorage").replace("/", ".");
+const legoUmd = (input, name) => {
   return {
     input,
     output: [
@@ -35,7 +34,7 @@ const legoNodeEs = input => ({
 });
 
 const config = ["./src/index.js"].reduce((previous, file) => {
-  previous.push(legoUmd(file));
+  previous.push(legoUmd(file, w3cwebstorage));
   previous.push(legoNodeEs(file));
   return previous;
 }, []);
