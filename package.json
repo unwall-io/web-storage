@@ -1,5 +1,5 @@
 {
-  "name": "@w3cwebstorage/w3cwebstorage",
+  "name": "@unwall/web-storage",
   "version": "0.1.3",
   "description": "Web Storage with reducers",
   "main": "./dist/index.cjs.js",
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w3cwebstorage/w3cwebstorage.git"
+    "url": "git+https://github.com/unwall-io/web-storage.git"
   },
   "bugs": {
-    "url": "https://github.com/w3cwebstorage/w3cwebstorage/issues"
+    "url": "https://github.com/unwall-io/web-storage/issues"
   },
-  "homepage": "https://github.com/w3cwebstorage/w3cwebstorage#readme",
+  "homepage": "https://github.com/unwall-io/web-storage#readme",
   "keywords": [
     "html5-storage",
     "javascript",

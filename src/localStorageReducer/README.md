@@ -1,6 +1,6 @@
-<a href="https://github.com/w3cwebstorage/w3cwebstorage" target="__blank"><img alt="w3cwebstorage" src="https://raw.githubusercontent.com/w3cwebstorage/w3cwebstorage/master/logo.png" width="100" /></a>
+<a href="https://github.com/unwall-io/web-storage" target="__blank"><img alt="web-storage" src="https://raw.githubusercontent.com/unwall-io/web-storage/master/logo.png" width="100" /></a>
 
-# w3cwebstorage - localStorageReducer
+# web-storage: localStorageReducer
 
 ## Usage
 
@@ -17,7 +17,7 @@
 ##### Get a value from local storage
 
 ```js
-import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@unwall/web-storage";
 
 const value = localStorageReducer(window.localStorage, {
   type: "get",
@@ -28,7 +28,7 @@ const value = localStorageReducer(window.localStorage, {
 ##### Set a value to local storage
 
 ```js
-import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@unwall/web-storage";
 
 localStorageReducer(window.localStorage, {
   type: "set",
@@ -40,7 +40,7 @@ localStorageReducer(window.localStorage, {
 ##### Remove a value from local storage
 
 ```js
-import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@unwall/web-storage";
 
 const value = localStorageReducer(window.localStorage, {
   type: "remove",
@@ -51,7 +51,7 @@ const value = localStorageReducer(window.localStorage, {
 ##### Clear all values in local storage
 
 ```js
-import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@unwall/web-storage";
 
 const value = localStorageReducer(window.localStorage, {
   type: "clear"
