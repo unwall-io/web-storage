@@ -1,4 +1,4 @@
-<a href="https://github.com/w3cwebstorage/w3cwebstorage" target="__blank"><img alt="w3cwebstorage" src="https://github.com/w3cwebstorage/w3cwebstorage/blob/3837597d61164184702430d38bb906df546e4424/logo.svg" width="60" /></a>
+<a href="https://github.com/w3cwebstorage/w3cwebstorage" target="__blank"><img alt="w3cwebstorage" src="https://raw.githubusercontent.com/w3cwebstorage/w3cwebstorage/master/logo.png" width="100" /></a>
 
 # w3cwebstorage - localstorage
 
