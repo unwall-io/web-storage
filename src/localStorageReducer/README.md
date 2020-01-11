@@ -1,6 +1,6 @@
 <a href="https://github.com/w3cwebstorage/w3cwebstorage" target="__blank"><img alt="w3cwebstorage" src="https://raw.githubusercontent.com/w3cwebstorage/w3cwebstorage/master/logo.png" width="100" /></a>
 
-# w3cwebstorage - localstorage
+# w3cwebstorage - localStorageReducer
 
 ## Usage
 
@@ -17,9 +17,9 @@
 ##### Get a value from local storage
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-const value = localstorage(window.localStorage, {
+const value = localStorageReducer(window.localStorage, {
   type: "get",
   key: "key"
 });
@@ -28,9 +28,9 @@ const value = localstorage(window.localStorage, {
 ##### Set a value to local storage
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-localstorage(window.localStorage, {
+localStorageReducer(window.localStorage, {
   type: "set",
   key: "key",
   value: "value"
@@ -40,9 +40,9 @@ localstorage(window.localStorage, {
 ##### Remove a value from local storage
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-const value = localstorage(window.localStorage, {
+const value = localStorageReducer(window.localStorage, {
   type: "remove",
   key: "key"
 });
@@ -51,9 +51,9 @@ const value = localstorage(window.localStorage, {
 ##### Clear all values in local storage
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-const value = localstorage(window.localStorage, {
+const value = localStorageReducer(window.localStorage, {
   type: "clear"
 });
 ```
