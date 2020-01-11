@@ -78,7 +78,7 @@ localStorageReducer(window.localStorage, {
 
 The exact message signature and usage will be found in the documentation of the indiviual storage type
 
-1. How to use [Local Storage](/src/localstorage/README.md)
+1. How to use [Local Storage](/src/localStorageReducer/README.md)
 2. How to use Session Storage (To be implemented)
 3. How to use Cookies (To be implemented)
 4. How to use IndexedDB (To be implemented)

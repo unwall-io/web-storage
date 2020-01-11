@@ -1,6 +1,6 @@
 <a href="https://github.com/w3cwebstorage/w3cwebstorage" target="__blank"><img alt="w3cwebstorage" src="https://raw.githubusercontent.com/w3cwebstorage/w3cwebstorage/master/logo.png" width="100" /></a>
 
-# w3cwebstorage - localstorage
+# w3cwebstorage - localStorageReducer
 
 ## Usage
 
@@ -53,7 +53,7 @@ const value = localStorageReducer(window.localStorage, {
 ```js
 import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-const value = localstorage(window.localStorage, {
+const value = localStorageReducer(window.localStorage, {
   type: "clear"
 });
 ```
