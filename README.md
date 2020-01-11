@@ -19,13 +19,34 @@ Redux emphasizes that the reducer function needs to stay pure and it should not 
 
 w3cwebstorage attempts to follow the recommendations but do not follow the rules strictly. In particular w3cwebstorage breaks the rule of mutating the store argument passed into the reducer. Although it follows the rules of the reducer returning the same results when providing the same parameters (Same state of store argument will always be returned if it has the same initial state).
 
-### Implemented Stores
+## Motivation
 
-1. Local Storage
-2. Session Storage (Design Phase)
-3. Cookies (Design Phase)
-4. IndexedDB (Design Phase)
-5. Cache API (Design Phase)
+w3cwebstorage is created with the ideas to provide the following:
+
+1. Provide a common public API for accessing different storage types that expose different APIs
+2. Encapsulate complexity of accessing storage like IndexedDB or CacheAPI that is asynchronous in nature and requires more complex code for access.
+3. Allow integration with other javascript code that provide functionality outside of web storage. An example is w3cwebstorage-react a library that is created to provide web storage functionality to ReactJs applications.
+4. Have a public API that is generic while being extensible for the individual web storage types that provide more complex functionality like querying for IndexedDB or manipulating binary objects like CacheAPI.
+
+w3cwebstorage is not built for all types of applications and for certain consumers it will not be worth using it. Taking the use case of an application that needs to just access the local storage. To set a value in the store it is a simple 1 line of code like `window.localStorage.setItem("test", "value")`.
+
+The same operation when using w3cwebstorage actually requires more code from the consumer. And this does not include the code bloat that required in the reducer functions.
+
+```js
+import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+
+localstorage(window.localStorage, {
+  type: "set",
+  key: expectedKey,
+  value: expectedValue
+});
+```
+
+In summary, using w3cwebstorage requires the consumer to make the following tradeoffs:
+
+1.  Initial congnitive load to understand an OpenSource public open API that has less resources compared to the heavily documented browser public APIs for web storage
+2.  More lines of code compared to accessing the browser API directly in some use cases
+3.  Increase complexity for application due to the need for bundlers
 
 ## Quick Start Guide
 
@@ -40,6 +61,28 @@ w3cwebstorage attempts to follow the recommendations but do not follow the rules
 `yarn add @w3cwebstorage/w3cwebstorage`
 
 ### Usage
+
+w3cwebstorage uses the common reducer function signature `reducer_name(storage, message)` for accessing the different storage types.
+
+An example using the local storage will be the following
+
+```js
+import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+
+localstorage(window.localStorage, {
+  type: "set",
+  key: expectedKey,
+  value: expectedValue
+});
+```
+
+The exact message signature and usage will be found in the documentation of the indiviual storage type
+
+1. How to use [Local Storage](/src/localstorage/README.md)
+2. How to use Session Storage (To be implemented)
+3. How to use Cookies (To be implemented)
+4. How to use IndexedDB (To be implemented)
+5. How to use Cache API (To be implemented)
 
 ## License
 
