@@ -6,7 +6,7 @@ const initializeStorage = () => {
   jest.clearAllMocks();
 };
 
-describe("localStorage.reducer", () => {
+describe("localStorageReducer", () => {
   describe("get", () => {
     beforeEach(() => initializeStorage());
 
