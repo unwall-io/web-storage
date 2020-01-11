@@ -33,9 +33,9 @@ w3cwebstorage is not built for all types of applications and for certain consume
 The same operation when using w3cwebstorage actually requires more code from the consumer. And this does not include the code bloat that required in the reducer functions.
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-localstorage(window.localStorage, {
+localStorageReducer(window.localStorage, {
   type: "set",
   key: expectedKey,
   value: expectedValue
@@ -67,9 +67,9 @@ w3cwebstorage uses the common reducer function signature `reducer_name(storage, 
 An example using the local storage will be the following
 
 ```js
-import { localstorage } from "@w3cwebstorage/w3cwebstorage";
+import { localStorageReducer } from "@w3cwebstorage/w3cwebstorage";
 
-localstorage(window.localStorage, {
+localStorageReducer(window.localStorage, {
   type: "set",
   key: expectedKey,
   value: expectedValue
