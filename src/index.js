@@ -1,1 +1,1 @@
-export { default as localStorageReducer } from "./localStorageReducer/index";
+export { default as storageReducer } from "./storageReducer";
