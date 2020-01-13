@@ -38,8 +38,8 @@ import { storageReducer } from "@unwall/web-storage";
 
 storageReducer(window.localStorage, {
   type: "set",
-  key: expectedKey,
-  value: expectedValue
+  key: "testkey",
+  value: "testvalue"
 });
 ```
 
@@ -75,8 +75,8 @@ import { storageReducer } from "@unwall/web-storage";
 
 storageReducer(window.localStorage, {
   type: "set",
-  key: expectedKey,
-  value: expectedValue
+  key: "testkey",
+  value: "testvalue"
 });
 ```
 

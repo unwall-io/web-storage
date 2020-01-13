@@ -1,12 +1,11 @@
-import { namespace } from "../config";
-
 const getItem = (state, action) => {
-  const value = state.getItem(`${namespace}.${action.key}`);
+  const value = state.getItem(action.key);
   return JSON.parse(value);
 };
 
 const setItem = (state, action) => {
-  const type = typeof action.value;
+  const { key, value } = action;
+  const type = typeof value;
   switch (type) {
     case "function":
     case "undefined": {
@@ -15,7 +14,7 @@ const setItem = (state, action) => {
       );
     }
     default:
-      state.setItem(`${namespace}.${action.key}`, JSON.stringify(action.value));
+      state.setItem(key, JSON.stringify(value));
   }
 };
 
@@ -29,7 +28,7 @@ const storageReducer = (state, action) => {
       return getItem(state, action);
     }
     case "remove": {
-      state.removeItem(`${namespace}.${action.key}`);
+      state.removeItem(action.key);
       break;
     }
     case "set": {

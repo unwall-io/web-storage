@@ -17,7 +17,7 @@ interface Storage {
 
 The storageReducer takes advantage of this implementation with its signature `storageReducer(state, message)`. This allows the consumer to pass in the `localStorage` or `sessionStorage` based on application requirements using the same API to manipulate different storage types.
 
-The other observation is that the interface declares the value returned by getItem to be a DOMString and the value accepted by setItem to be a DOMString. And based on the testing performed on the following browsers, the setItem calls the toString of the supplied value before storage. The storageReducer uses `JSON.parse` and `JSON.stringify` to transform the value before storage. This allows the consumer to maintain the data type of the value during both storage and retrieval. This means that a value that was stored as an object when keep it's type during retrieval.
+The other observation is that the interface declares the value returned by getItem to be a DOMString and the value accepted by setItem to be a DOMString. And based on the testing performed on the following browsers, the setItem calls the toString of the supplied value before storage. The storageReducer uses `JSON.parse` and `JSON.stringify` to transform the value before storage. This allows the consumer to maintain the data type of the value during both storage and retrieval. This means that a value that was stored as an object will keep it's type during retrieval.
 
 1. Chrome - 79.0.3945.88
 2. Firefox - 72.0.1
@@ -130,7 +130,3 @@ const value = storageReducer(window.sessionStorage, {
   type: "clear"
 });
 ```
-
-#### Implementation Detail
-
-storageReducer uses adds a prefix of `unwall` to the keys when storing or retreving data from the storage types. This is internal to the implementation and is used by localStorageReducer to differentiate between localStorage manipulated outside the module. This lowers the risks of an externally set value causing bugs due to tranformations done by localStorageReducer during the data manipulation process.

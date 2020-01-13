@@ -1,4 +1,3 @@
-import { namespace } from "../config";
 import reducer from ".";
 
 const initializeStorage = storage => {
@@ -17,7 +16,7 @@ describe.each([
     it("should allow state.setItem with integer", () => {
       const key = "testKey";
       const value = 10;
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -36,7 +35,7 @@ describe.each([
     it("should allow state.setItem with decimal", () => {
       const key = "testKey";
       const value = 10.0;
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -55,7 +54,7 @@ describe.each([
     it("should allow state.setItem with string", () => {
       const key = "testKey";
       const value = "10.0";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -74,7 +73,7 @@ describe.each([
     it("should allow state.setItem with object", () => {
       const key = "testKey";
       const value = { a: 10.0 };
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -93,7 +92,7 @@ describe.each([
     it("should allow state.setItem with array", () => {
       const key = "testKey";
       const value = [10.0, "a"];
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -112,7 +111,7 @@ describe.each([
     it("should allow state.setItem with null", () => {
       const key = "testKey";
       const value = null;
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = `${key}`;
       const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
@@ -152,7 +151,7 @@ describe.each([
 
     it("should return integer value for state.getItem", () => {
       const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = 10;
       const action = { type: "get", key };
       storage.getItem.mockReturnValueOnce(JSON.stringify(expectedValue));
@@ -166,7 +165,7 @@ describe.each([
 
     it("should return decimal value for state.getItem", () => {
       const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = 10.0;
       const action = { type: "get", key };
       storage.getItem.mockReturnValueOnce(JSON.stringify(expectedValue));
@@ -180,7 +179,7 @@ describe.each([
 
     it("should return string value for state.getItem", () => {
       const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = "10.0";
       const action = { type: "get", key };
       storage.getItem.mockReturnValueOnce(JSON.stringify(expectedValue));
@@ -194,7 +193,7 @@ describe.each([
 
     it("should return object value for state.getItem", () => {
       const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = { a: "10.0" };
       const action = { type: "get", key };
       storage.getItem.mockReturnValueOnce(JSON.stringify(expectedValue));
@@ -208,7 +207,7 @@ describe.each([
 
     it("should return array value for state.getItem", () => {
       const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
+      const expectedKey = key;
       const expectedValue = ["10.0", 10, 10.0];
       const action = { type: "get", key };
       storage.getItem.mockReturnValueOnce(JSON.stringify(expectedValue));
@@ -218,19 +217,6 @@ describe.each([
       expect(storage.getItem).toHaveBeenCalledTimes(1);
       expect(storage.getItem).toHaveBeenLastCalledWith(expectedKey);
       expect(actualValue).toEqual(expectedValue);
-    });
-
-    it("should not return value for items populated outside @unwall/web-storage when calling state.getItem with a similar key", () => {
-      const key = "testKey";
-      const expectedKey = `${namespace}.${key}`;
-      storage.__STORE__[key] = "data should not be returned";
-      const action = { type: "get", key };
-
-      const actualValue = reducer(storage, action);
-
-      expect(storage.getItem).toHaveBeenCalledTimes(1);
-      expect(storage.getItem).toHaveBeenLastCalledWith(expectedKey);
-      expect(actualValue).toEqual(null);
     });
 
     it("should call state.clear", () => {
@@ -245,14 +231,14 @@ describe.each([
 
     it("should call state.remove", () => {
       const key = "keyToRemove";
-      const expectedKeyToRemove = `${namespace}.keyToRemove`;
-      storage.__STORE__[expectedKeyToRemove] = "data to be cleared";
-      storage.__STORE__[`${namespace}.keyToRemain`] = "data to remain";
+      const expectedKey = key;
+      storage.__STORE__[expectedKey] = "data to be cleared";
+      storage.__STORE__["keyToRemain"] = "data to remain";
       const action = { type: "remove", key };
 
       reducer(storage, action);
       expect(storage.removeItem).toHaveBeenCalledTimes(1);
-      expect(storage.removeItem).toHaveBeenLastCalledWith(expectedKeyToRemove);
+      expect(storage.removeItem).toHaveBeenLastCalledWith(expectedKey);
       expect(Object.keys(storage.__STORE__).length).toBe(1);
     });
 
