@@ -1,6 +1,6 @@
 {
   "name": "@unwall/web-storage",
-  "version": "0.1.3",
+  "version": "0.1.0",
   "description": "Web Storage with reducers",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.js",
