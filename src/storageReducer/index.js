@@ -1,6 +1,10 @@
 const getItem = (state, action) => {
   const { key, datatype } = action;
   const value = state.getItem(key);
+  if (!("datatype" in action)) {
+    return value;
+  }
+
   switch (datatype) {
     case "boolean": {
       return Boolean(value);
@@ -15,8 +19,13 @@ const getItem = (state, action) => {
     case "object": {
       return JSON.parse(value);
     }
+    case "string": {
+      return value;
+    }
+    default: {
+      throw new Error(`getItem does support datatype: ${datatype}`);
+    }
   }
-  return value;
 };
 
 const setItem = (state, action) => {
