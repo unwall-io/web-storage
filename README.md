@@ -2,7 +2,7 @@
 
 # web-storage
 
-[![npm (scoped)](https://img.shields.io/npm/v/unwall/web-storage)](https://www.npmjs.com/package/unwall/web-storage)
+[![npm (scoped)](https://img.shields.io/npm/v/@unwall/web-storage)](https://www.npmjs.com/package/@unwall/web-storage)
 [![CircleCI Status](https://img.shields.io/circleci/build/github/unwall-io/web-storage)](https://circleci.com/gh/unwall-io/web-storage)
 [![Coveralls Status](https://img.shields.io/coveralls/github/unwall-io/web-storage/master)](https://coveralls.io/github/unwall-io/web-storage?branch=master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
