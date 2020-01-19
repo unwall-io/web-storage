@@ -543,6 +543,24 @@ describe.each([
       expect(actualValue).toEqual(expectedValue);
     });
 
+    describe.each([undefined, null, "", "  ", NaN, "invalid", "symbol"])(
+      "getItem invalid datatypes",
+      datatype => {
+        beforeEach(() => initializeStorage(storage));
+
+        it(`should error out for invalid datatype "${datatype}"`, () => {
+          const action = {
+            type: "get",
+            key: "testkey",
+            datatype
+          };
+          expect(() => reducer(storage, action)).toThrowError(
+            new Error(`getItem does support datatype: ${datatype}`)
+          );
+        });
+      }
+    );
+
     it("should call state.clear", () => {
       storage.__STORE__["keyToRemove1"] = "data 1 to be cleared";
       storage.__STORE__["keyToRemove2"] = "data 2 to be cleared";
