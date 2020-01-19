@@ -24,7 +24,9 @@ web-storage attempts to follow the recommendations but do not follow the rules s
 web-storage is created with the ideas to provide the following:
 
 1. Provide a common public API for accessing different storage types that expose different APIs
-2. Encapsulate complexity of accessing storage like IndexedDB or CacheAPI that is asynchronous in nature and requires more complex code for access.
+2. Encapsulate code that is required to access or manipulate data from the storage like:
+   1. Handle asynchronous code in accessing storage like IndexedDB or CacheAPI
+   2. Provide data transformation for accessing storage like LocalStorage and SessionStorage that requires the value to be store as strings.
 3. Allow integration with other javascript code that provide functionality outside of web storage. An example is web-storage-react a library that is created to provide web storage functionality to ReactJs applications.
 4. Have a public API that is generic while being extensible for the individual web storage types that provide more complex functionality like querying for IndexedDB or manipulating binary objects like CacheAPI.
 5. Handle transformation of data types for storage type like localStorage that only manipulate values in strings
