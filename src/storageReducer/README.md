@@ -4,6 +4,14 @@
 
 storageReducer provides the implementation to access and manipulate the localStorage and sessionStorage defined in the <a href="https://www.w3.org/TR/webstorage/">W3C</a> Web Storage recommendation document.
 
+## localStorage
+
+The W3C localStorage provides a synchronous name-value storage for the browser. This makes it inaccessible to browser worker APIs like Service Worker. Access to the storage is limited to consumers from the same Document origin, and the protocol of the page is considered when controlling this access. This storage is persisted across browsing sessions, the user can close all tabs browsing the page and return at a different session with the data persisted. The storage has a limited in maximum storage capacity allowed that depends on the browser implementation. It does not support querying besides access using keys.
+
+## sessionStorage
+
+The W3C sessionStorage provides a synchronous name-value storage for the browser. This makes it inaccessible to browser worker APIs like Service Worker. Access to the storage is limited to consumers from the same Document origin, and the protocol of the page is considered when controlling this access. This storage is not persisted across browsing sessions, once the user closes the page the data is removed. Accessing the same document in the same browsing session in a different tab will also create a new instance of sessionStorage. The storage has a limited in maximum storage capacity allowed that depends on the browser implementation. It does not support querying besides access using keys.
+
 ## Requirements
 
 storageReducer provides access to W3C sessionStorage and localStorage. You can check for the support using
