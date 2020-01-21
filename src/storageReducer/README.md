@@ -212,6 +212,6 @@ The same W3C Storage Interface defines the value returned by getItem to be a DOM
 
 storageReducer handles type conversion via the use of the `datatype` property in the message (Recommended) or it will attempt to inspect the type of the value provided to guess the correct conversion method to use. Based on the datatype, storageReducer will perform the conversion to string using `toString`, `toISOString` or `JSON.stringify`. This is chosen over just using `JSON.stringify` on all values as `JSON.stringify` does not handle `BigInt` and `Date` values properly when converting the string back to the original type.
 
-#### setItem
+#### getItem
 
 storageReducer handles type conversion via the use of the `datatype` property in the message or it will return the string retrieved from the store. Based on the datatype, storageReducer will perform the conversion to type using buildin functions (`Number, BigInt`), object contructors (`new Date()`)`toISOString` or `JSON.parse`. This is chosen over just using `JSON.parse` on all values as `JSON.parse` does not handle `BigInt` and `Date` values properly when converting the string back to the original type.
