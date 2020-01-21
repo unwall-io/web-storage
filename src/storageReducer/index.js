@@ -34,7 +34,7 @@ const setItem = (state, action) => {
   if (!("datatype" in action)) {
     // when data type is not provided use value inspection to determine the datatype.
     let type = typeof value;
-    if (type === "undefined" || type == "function" || value === null) {
+    if (type === "undefined" || type == "function") {
       throw new Error(`setItem does not support value: ${value}`);
     }
 

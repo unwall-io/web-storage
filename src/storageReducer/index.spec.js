@@ -286,15 +286,42 @@ describe.each([
       expect(Object.keys(storage.__STORE__).length).toEqual(1);
     });
 
-    it("should error out on state.setItem with value as null", () => {
+    it("should allow state.setItem with no datatype for null", () => {
       const key = "testKey";
       const value = null;
+      const expectedKey = key;
+      const expectedValue = JSON.stringify(value);
 
       const action = { type: "set", key, value };
 
-      expect(() => reducer(storage, action)).toThrowError(
-        `setItem does not support value: ${value}`
+      reducer(storage, action);
+
+      expect(storage.setItem).toHaveBeenCalledTimes(1);
+      expect(storage.setItem).toHaveBeenLastCalledWith(
+        expectedKey,
+        expectedValue
       );
+      expect(storage.__STORE__[expectedKey]).toEqual(expectedValue);
+      expect(Object.keys(storage.__STORE__).length).toEqual(1);
+    });
+
+    it("should allow state.setItem with no datatype for null", () => {
+      const key = "testKey";
+      const value = null;
+      const expectedKey = key;
+      const expectedValue = JSON.stringify(value);
+
+      const action = { type: "set", key, value };
+
+      reducer(storage, action);
+
+      expect(storage.setItem).toHaveBeenCalledTimes(1);
+      expect(storage.setItem).toHaveBeenLastCalledWith(
+        expectedKey,
+        expectedValue
+      );
+      expect(storage.__STORE__[expectedKey]).toEqual(expectedValue);
+      expect(Object.keys(storage.__STORE__).length).toEqual(1);
     });
 
     it("should error out on state.setItem with value as undefined", () => {
