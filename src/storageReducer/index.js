@@ -9,6 +9,9 @@ const getItem = (state, action) => {
     case "boolean": {
       return Boolean(value);
     }
+    case "bigint": {
+      return BigInt(value);
+    }
     case "date": {
       return new Date(value);
     }
@@ -50,6 +53,7 @@ const setItem = (state, action) => {
 
   switch (datatype) {
     case "boolean":
+    case "bigint":
     case "number":
     case "string": {
       state.setItem(key, value.toString());

@@ -91,6 +91,45 @@ describe.each([
       expect(Object.keys(storage.__STORE__).length).toEqual(1);
     });
 
+    it("should allow state.setItem with no datatype for bigint", () => {
+      const key = "testKey";
+      const value = 9007199254740992n;
+      const expectedKey = key;
+      const expectedValue = value.toString();
+
+      const action = { type: "set", key, value };
+
+      reducer(storage, action);
+
+      expect(storage.setItem).toHaveBeenCalledTimes(1);
+      expect(storage.setItem).toHaveBeenLastCalledWith(
+        expectedKey,
+        expectedValue
+      );
+      expect(storage.__STORE__[expectedKey]).toEqual(expectedValue);
+      expect(Object.keys(storage.__STORE__).length).toEqual(1);
+    });
+
+    it("should allow state.setItem with datatype bigint for bigint", () => {
+      const key = "testKey";
+      const value = BigInt(Number.MAX_SAFE_INTEGER + 1);
+      const datatype = "number";
+      const expectedKey = key;
+      const expectedValue = value.toString();
+
+      const action = { type: "set", key, value, datatype };
+
+      reducer(storage, action);
+
+      expect(storage.setItem).toHaveBeenCalledTimes(1);
+      expect(storage.setItem).toHaveBeenLastCalledWith(
+        expectedKey,
+        expectedValue
+      );
+      expect(storage.__STORE__[expectedKey]).toEqual(expectedValue);
+      expect(Object.keys(storage.__STORE__).length).toEqual(1);
+    });
+
     it("should allow state.setItem with no datatype for integer", () => {
       const key = "testKey";
       const value = 10;
@@ -420,6 +459,34 @@ describe.each([
 
       const actualValue = reducer(storage, action);
 
+      expect(storage.getItem).toHaveBeenCalledTimes(1);
+      expect(storage.getItem).toHaveBeenLastCalledWith(key);
+      expect(actualValue).toEqual(expectedValue);
+    });
+
+    it("should return bigint value as string for state.getItem with no datatype", () => {
+      const key = "testKey";
+      const value = BigInt(Number.MAX_SAFE_INTEGER + 1).toString();
+      const expectedValue = value;
+      const action = { type: "get", key };
+      storage.getItem.mockReturnValueOnce(value);
+
+      const actualValue = reducer(storage, action);
+
+      expect(storage.getItem).toHaveBeenCalledTimes(1);
+      expect(storage.getItem).toHaveBeenLastCalledWith(key);
+      expect(actualValue).toEqual(expectedValue);
+    });
+
+    it("should return integer value as number for state.getItem with datatype bigint", () => {
+      const key = "testKey";
+      const value = BigInt(Number.MAX_SAFE_INTEGER + 1);
+      const datatype = "bigint";
+      const expectedValue = value;
+      const action = { type: "get", key, datatype };
+      storage.getItem.mockReturnValueOnce(value);
+
+      const actualValue = reducer(storage, action);
       expect(storage.getItem).toHaveBeenCalledTimes(1);
       expect(storage.getItem).toHaveBeenLastCalledWith(key);
       expect(actualValue).toEqual(expectedValue);
