@@ -1,10 +1,10 @@
-<a href="https://github.com/unwall-io/web-storage" target="__blank"><img alt="web-storage" src="https://raw.githubusercontent.com/unwall-io/web-storage/master/logo.png" width="100" /></a>
+<a href="https://github.com/unwall/web-storage" target="__blank"><img alt="web-storage" src="https://raw.githubusercontent.com/unwall/web-storage/master/logo.png" width="100" /></a>
 
 # web-storage
 
 [![npm (scoped)](https://img.shields.io/npm/v/@unwall/web-storage)](https://www.npmjs.com/package/@unwall/web-storage)
-[![CircleCI Status](https://img.shields.io/circleci/build/github/unwall-io/web-storage)](https://circleci.com/gh/unwall-io/web-storage)
-[![Coveralls Status](https://img.shields.io/coveralls/github/unwall-io/web-storage/master)](https://coveralls.io/github/unwall-io/web-storage?branch=master)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/unwall/web-storage)](https://circleci.com/gh/unwall/web-storage)
+[![Coveralls Status](https://img.shields.io/coveralls/github/unwall/web-storage/master)](https://coveralls.io/github/unwall/web-storage?branch=master)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Overview

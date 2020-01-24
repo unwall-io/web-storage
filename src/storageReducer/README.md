@@ -1,4 +1,4 @@
-<a href="https://github.com/unwall-io/web-storage" target="__blank"><img alt="web-storage" src="https://raw.githubusercontent.com/unwall-io/web-storage/master/logo.png" width="100" /></a>
+<a href="https://github.com/unwall/web-storage" target="__blank"><img alt="web-storage" src="https://raw.githubusercontent.com/unwall/web-storage/master/logo.png" width="100" /></a>
 
 # web-storage: storageReducer
 
@@ -214,7 +214,7 @@ The same W3C Storage Interface defines the value returned by getItem to be a DOM
 - `new Date()`: losing accuracy of the value
 - `{ a: "test" }` or `["a", 10, bool]`: storing the wrong value
 
-<img alt="Calling toString on Javascript types" src="https://raw.githubusercontent.com/unwall-io/web-storage/master/src/storageReducer/toString.png" />
+<img alt="Calling toString on Javascript types" src="https://raw.githubusercontent.com/unwall/web-storage/master/src/storageReducer/toString.png" />
 
 #### setItem
 

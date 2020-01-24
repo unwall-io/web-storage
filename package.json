@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unwall-io/web-storage.git"
+    "url": "git+https://github.com/unwall/web-storage.git"
   },
   "bugs": {
-    "url": "https://github.com/unwall-io/web-storage/issues"
+    "url": "https://github.com/unwall/web-storage/issues"
   },
-  "homepage": "https://github.com/unwall-io/web-storage#readme",
+  "homepage": "https://github.com/unwall/web-storage#readme",
   "keywords": [
     "html5-storage",
     "javascript",
